@@ -1,0 +1,29 @@
+{
+  "mentors": [
+    {
+      "logo": "/assets/woman.jpg",
+      "name": "Mentor 1",
+      "area": "Programação"
+    },
+    {
+      "logo": "/assets/woman.jpg",
+      "name": "Mentor 2",
+      "area": "Programação"
+    },
+    {
+      "logo": "/assets/woman.jpg",
+      "name": "Mentor 2",
+      "area": "Programação"
+    },
+    {
+      "logo": "/assets/woman.jpg",
+      "name": "Mentor 2",
+      "area": "Programação"
+    },
+    {
+      "logo": "/assets/woman.jpg",
+      "name": "Mentor 2",
+      "area": "Programação"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "mentees": [
+    {
+      "logo": "/assets/woman.jpg",
+      "name": "Aluno 1",
+      "area": "Programação"
+    },
+    {
+      "logo": "/assets/woman.jpg",
+      "name": "Aluno 2",
+      "area": "Programação"
+    }
+  ]
+}
