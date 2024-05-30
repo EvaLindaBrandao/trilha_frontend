@@ -8,7 +8,7 @@ import { useState } from "react";
 
 //Image
 import ImagemLogin from "/public/assets/login.svg";
-import { userRoutes } from "@/components/axios";
+import { api } from "@/services/api";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -16,7 +16,7 @@ export default function Login() {
 
   async function handle(password: string, email: string) {
     try {
-      const response = await userRoutes.post("/login", {
+      const response = await api.post("/login", {
         email,
         password,
       });
