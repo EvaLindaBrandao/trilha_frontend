@@ -1,17 +1,25 @@
 "use client";
-import quizDate from "../mokes/quiz.json";
 import { ButtonSecundary } from "@/components/Landing/Buttons/button-secundary";
 import { Header } from "@/components/Landing/Header";
+import { QuestionService } from "@/services/QuestionService";
+import { Question } from "@/types/question";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Questionario() {
-  const quiz = quizDate.quiz;
+  const [questions, setQuestions] = useState<Question[]>([{id: 0, text: '', response: []}]);
+
   const [index, setIndex] = useState(0);
   const router = useRouter();
 
-  function addIndex() {
-    const isLastIndexQuiz = index === quiz.length - 1;
+  useEffect(() => {
+    QuestionService.getAll().then(data => {
+        setQuestions(data)
+    });
+}, []);
+
+function addIndex() {
+    const isLastIndexQuiz = index === questions.length - 1;
 
     if (!isLastIndexQuiz) setIndex(index + 1);
 
@@ -41,13 +49,13 @@ export default function Questionario() {
 
       <div className="mx-auto mt-9 flex w-[600px] flex-col items-center gap-6 px-8">
         <div className="w-full rounded-lg p-4 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-          <p>{quiz[index].question}</p>
+          <p>{questions[index].text}</p>
         </div>
         <div className="flex w-full flex-col  gap-2">
-          {quiz[index].awsers.map((awser) => {
+          {questions[index].response.map((response, i) => {
             return (
-              <div className="flex h-14 w-full items-center rounded-lg shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] hover:bg-primary-orange focus:bg-primary-orange">
-                <p className="p-3">{awser}</p>
+              <div key={i} className="flex h-14 w-full items-center rounded-lg shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] hover:bg-primary-orange focus:bg-primary-orange">
+                <p className="p-3">{response.text}</p>
               </div>
             );
           })}
