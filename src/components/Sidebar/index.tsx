@@ -8,6 +8,7 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { IoMdContacts } from "react-icons/io";
 import { FaRegCalendarDays } from "react-icons/fa6";
 import { SiAlltrails } from "react-icons/si";
+import { FaFacebookMessenger } from "react-icons/fa";
 import { HiOutlineSquares2X2 } from "react-icons/hi2";
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -69,6 +70,20 @@ const sidebarItens: SideBarItens[] = [
     link: "/perfil",
     icon: IoSettingsOutline,
     iconSize: 25,
+  },
+  {
+    description: "Mensagens",
+    link: "/messegeMentees",
+    icon: FaFacebookMessenger ,
+    iconSize: 25,
+    userType: "mentor",
+  },
+  {
+    description: "Mensagens",
+    link: "/messegeMentors",
+    icon:  FaFacebookMessenger,
+    iconSize: 25,
+    userType: "mentee",
   },
 ];
 
