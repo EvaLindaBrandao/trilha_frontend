@@ -9,6 +9,7 @@ type Props = {
   titulo: string;
   paragrafo: string;
   imageStyle?: string;
+  href?: string;
 };
 
 export function CardCarreira({
@@ -17,6 +18,7 @@ export function CardCarreira({
   titulo,
   paragrafo,
   imageStyle,
+  href
 }: Props) {
   return (
     <div className="flex items-center gap-4">
@@ -26,7 +28,7 @@ export function CardCarreira({
       <div className="flex flex-1 flex-col items-start gap-2">
         <h2 className="text-blue-black">{titulo}</h2>
         <p className="text-gray-black">{paragrafo}</p>
-        <Link href="/informativo">
+        <Link href={href || ''}>
           <ButtonSecundary
             text="Ler mais..."
             bgColor="bg-primary-orange"

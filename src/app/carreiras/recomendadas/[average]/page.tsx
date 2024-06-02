@@ -40,6 +40,7 @@ export default function CarreirasRecomendas() {
           {careers.map(career => (
             <CardCarreira
               key={career.id}
+              href={`/carreiras/${career.id}`}
               src={ImagemCarreira1}
               alt="Imagem de Carreira"
               titulo={career.name}
