@@ -1,10 +1,10 @@
 'use client';
 //Components
-import { CardCarreira } from "@/components/Landing/Cards/card-career";
+import { CardPrimary } from "@/components/Landing/Cards/card-primary";
 import { Header } from "@/components/Landing/Header";
 
 //Image
-import ImagemCarreira1 from "/public/assets/imagemcarreira1.svg";
+import noImage from "/public/images/no-image.png";
 import { useParams } from "next/navigation";
 import { Career } from "@/types/career";
 import { useEffect, useState } from "react";
@@ -38,13 +38,13 @@ export default function CarreirasRecomendas() {
         </p>
         <div className="mt-10 grid grid-cols-2 gap-6">
           {careers.map(career => (
-            <CardCarreira
+            <CardPrimary
               key={career.id}
               href={`/carreiras/${career.id}`}
-              src={ImagemCarreira1}
+              src={career?.imageSrc || noImage.src}
               alt="Imagem de Carreira"
               titulo={career.name}
-              paragrafo={career.description}
+              paragrafo={career?.shortDescription || ''}
             />
           ))}
         </div>

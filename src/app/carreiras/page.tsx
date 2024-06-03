@@ -34,7 +34,7 @@ export default function Carreiras() {
                 src={career?.imageSrc}
                 alt="Imagem de Carreira"
                 titulo={career.name}
-                paragrafo={career.description}
+                paragrafo={career?.shortDescription || ''}
              />
             )
           })}
