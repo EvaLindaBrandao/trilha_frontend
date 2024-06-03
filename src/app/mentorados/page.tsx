@@ -1,14 +1,10 @@
+'use client'
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
-import TableOne from "@/components/Tables/MentorTable";
-
-import { Metadata } from "next";
+import useSWR from 'swr'
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import { BRAND } from "@/types/brand";
-
-export const metadata: Metadata = {
-  title: "Trilha",
-  description: "Plataforma de apoio a decisão da carreira profissional",
-};
+import { mentorsService } from "@/services/mentorsService";
+import DataTable from "@/components/table";
 
 const brandData: BRAND[] = [
   {
@@ -23,16 +19,16 @@ const brandData: BRAND[] = [
   },
 ];
 
-const TablesPage = () => {
+const Mentorados = () => {
+  const { data, isLoading, error} = useSWR("/mentors", mentorsService.getAll)
   return (
     <DefaultLayout>
       <Breadcrumb pageName="Mentorados" />
-
       <div className="flex flex-col gap-10">
-        <TableOne brandData={brandData} title="Meus Mentores" />
+        <DataTable columns={["Nome", "Area"]} rows={[]}/>
       </div>
     </DefaultLayout>
   );
 };
 
-export default TablesPage;
+export default Mentorados;

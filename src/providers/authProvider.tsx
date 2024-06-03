@@ -13,7 +13,7 @@ interface AuthProviderProps {
     logOut: () => void;
 }
 
-const publicroutes = ["/auth/login", "/auth/cadastro", "/", "/carreiras", "/areas", "/questionario", "/trilha/carreiras"]; 
+const publicroutes = ["/auth/login", "/auth/cadastro", "/", "/carreiras", "/areas", "/questionario", "/trilhas/carreiras"]; 
 
 export const AuthContext = createContext({} as AuthProviderProps);
 
@@ -37,13 +37,14 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             return user;
     }
 
+
     useEffect(() => {
         getUser().then((user) => {
             setUser(user.data);
             setToken(TokenService.getToken() as string);
             pathname.startsWith("/auth") ? router.replace("/dashboard") : router.replace(pathname);
         }).catch((err) => {
-            if(publicroutes.includes(pathname)){
+            if(publicroutes.includes(pathname) || pathname.startsWith("/trilhas/carreiras/") || pathname.startsWith("/carreiras/")) {
                 return router.replace(pathname)
             }
             return router.replace("/auth/login")
@@ -52,6 +53,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         });
     }, [pathname]);
 
+
+    
     if (loading) {
         return <Loader />;
     }
