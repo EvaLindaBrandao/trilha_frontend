@@ -5,7 +5,10 @@ const nextConfig = {};
 
 export default {
     images: {
-        domains: ['github.com'],
+        domains: [
+            'github.com',
+            'localhost'
+        ],
       },
   };
   

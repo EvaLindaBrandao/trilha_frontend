@@ -24,7 +24,7 @@ export default function CarreiaraDetalhes() {
   return (
     <>
       <Header />
-      <div className=" w-full ">
+      <div className=" w-full p-8">
         <div className="flex h-40 justify-between bg-[#F0F2F5] px-5">
           <div>
             <h1 className="text-secondary-blue mt-2 text-2xl font-bold">
@@ -34,7 +34,7 @@ export default function CarreiaraDetalhes() {
               Por favor, responda com atenção às <br /> perguntas
               apresentadas.
             </p>
-            <Link href={`trilhas/carreiras/${career?.id}`}>
+            <Link href={`/trilhas/carreiras/${career?.id}`}>
               <ButtonSecundary
                 text="Ver trilhas"
                 bgColor="bg-primary-orange"
@@ -48,7 +48,7 @@ export default function CarreiaraDetalhes() {
         </div>
         <div className="w-ful flex gap-7">
           <div className="mt-4 h-[400px] w-[300px] bg-[#F0F2F5]"></div>
-          <div>{career?.description}</div>
+          <div dangerouslySetInnerHTML={{__html: career?.description || ''}}></div>
         </div>
       </div>
     </>
