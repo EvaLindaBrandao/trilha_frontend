@@ -25,9 +25,9 @@ export default function CarreiaraDetalhes() {
     <>
       <Header />
       <div className=" w-full p-8">
-        <div className="flex h-40 justify-between bg-[#F0F2F5] px-5">
+        <div className="flex h-44 justify-between bg-[#F0F2F5] p-4">
           <div>
-            <h1 className="text-secondary-blue mt-2 text-2xl font-bold">
+            <h1 className="text-secondary-blue text-2xl font-bold">
               Carreira<span className="text-primary-orange"> de {career?.name}</span>
             </h1>
             <p className="text-gray-black mb-2 mt-2">
@@ -42,12 +42,18 @@ export default function CarreiaraDetalhes() {
               />
             </Link>
           </div>
-          <div>
-            <Image src={Programmer} alt="Imagem de programador" width={260} />
+          <div className="w-40 h-42 -my-4">
+            <Image 
+              unoptimized
+              src={career?.imageSrc || ''} 
+              alt="Imagem da carreira" 
+              className="w-full h-full object-cover"
+              width={100} 
+              height={100}
+            />
           </div>
         </div>
-        <div className="w-ful flex gap-7">
-          <div className="mt-4 h-[400px] w-[300px] bg-[#F0F2F5]"></div>
+        <div className="w-ful flex gap-7 mt-8">
           <div dangerouslySetInnerHTML={{__html: career?.description || ''}}></div>
         </div>
       </div>

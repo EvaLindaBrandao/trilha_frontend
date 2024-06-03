@@ -27,10 +27,12 @@ export default function Carreiras() {
           conbinam contigo
         </h2>
         <div className="mt-10 grid grid-cols-2 gap-6">
-          {careers.map((career)=>{
+          { careers.map((career)=>{
             return (
               <CardCarreira
-                src={ImagemCarreira2}
+                key={career.id}
+                href={`/carreiras/${career.id}`}
+                src={career?.imageSrc}
                 alt="Imagem de Carreira"
                 titulo={career.name}
                 paragrafo={career.description}
