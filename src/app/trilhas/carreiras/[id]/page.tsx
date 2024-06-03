@@ -21,11 +21,7 @@ export default function CarreiaraDetalhes() {
     TrailService.getByCareer(careerId).then(data => setTrails(data))
   },[careerId])
 
-  if(!trails.length) {
-    toast.warn('Está carreira não tem trilhas')
-
-    return router.back()
-  }
+  if(!trails.length) return
 
   return (
     <>
@@ -60,7 +56,7 @@ export default function CarreiaraDetalhes() {
                   <p className="h-20 block mb-4 font-sans text-base antialiased font-normal leading-relaxed text-gray-700 text-ellipsis overflow-hidden">
                     {trail.description}
                   </p>
-                  <Link href={`/trilhas/${trail.id}`} className="inline-block">
+                  <Link href={`/trilhas/${trail.id}/info`} className="inline-block">
                     <button
                       className="flex items-center gap-2 py-3 font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none hover:bg-gray-900/10 active:bg-gray-900/20"
                       type="button"
