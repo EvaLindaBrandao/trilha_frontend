@@ -41,6 +41,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             setToken(TokenService.getToken() as string);
             pathname.startsWith("/auth") ? router.replace("/dashboard") : router.replace(pathname);
         }).catch((err) => {
+            if(pathname.startsWith("/auth")){
+                return router.replace(pathname)
+            }
             logout();
         }).finally(() => {
             setLoading(false);

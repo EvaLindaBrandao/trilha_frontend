@@ -51,7 +51,7 @@ export default function Login() {
         <h1 className=" mb-5 mt-4 text-3xl font-bold text-secondary-blue ">
           Entrar na sua conta
         </h1>
-        <div className="flex w-full flex-col gap-5">
+        <div className="flex w-full flex-col gap-2 mb-6">
         <Input
             label="Usuário"
             id="email"
@@ -61,6 +61,9 @@ export default function Login() {
             onBlur={formik.handleBlur} 
             value={formik.values.email}             
           />
+          {formik.touched.email && formik.errors.email? (
+            <p className="text-rose-600">{formik.errors.email}</p>
+          ) : null}
           <Input
             label="Senha"
             placeholder="Digite a sua senha"
@@ -70,14 +73,17 @@ export default function Login() {
             onBlur={formik.handleBlur} 
             value={formik.values.password}
           />
+          {formik.touched.password && formik.errors.password ? (
+            <p className="text-rose-600">{formik.errors.password}</p>
+          ) : null}
         </div>
-        <p className="mb-10 mt-2 text-sm">
+        {/* <p className="mb-10 mt-2 text-sm">
           <Link href="/">Esqueceu sua senha?</Link>
-        </p>
+        </p> */}
         <ButtonPrimary text="Entrar"  type="submit"/>
         <p className="mt-8 text-sm">
           Ainda não tem uma conta?
-          <Link href="/cadastro" className="text-primary-orange">
+          <Link href="/auth/cadastro" className="text-primary-orange">
             {" "}
             Cadastrar
           </Link>

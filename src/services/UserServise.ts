@@ -1,27 +1,17 @@
-import { toast } from "react-toastify";
 import { api } from "./api";
+
+const BASE_URL = "/users"
 
 export const UserService = {
   async createUser(
     name: string,
     password: string,
     email: string,
-    isCoach: boolean,
+    userType: any,
+    phoneNumber: string
   ) {
-    try {
-      const response = await api.post("user/create", {
-        name,
-        password,
-        email,
-        isCoach,
-      });
-
-      toast.success("Conta criada com sucesso !");
-      return response;
-    } catch (error: any) {
-      console.log(error);
-      toast.error(error.response.data.message.message);
-    }
+      const response = await api.post("/users", { name, password, email, userType, phoneNumber})
+      return response  
   },
 
   async getUserById(id: string) {
