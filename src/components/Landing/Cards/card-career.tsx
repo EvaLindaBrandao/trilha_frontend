@@ -27,10 +27,10 @@ export function CardCarreira({
       </div>
       <div className="flex flex-1 flex-col items-start gap-2">
         <h2 className="text-blue-black">{titulo}</h2>
-        <p className="text-gray-black">{paragrafo}</p>
+        <p className="text-gray-black text-ellipsis overflow-hidden h-20">{paragrafo}</p>
         <Link href={href || ''}>
           <ButtonSecundary
-            text="Ler mais..."
+            text="Ler mais"
             bgColor="bg-primary-orange"
             textColor="text-white"
           />
