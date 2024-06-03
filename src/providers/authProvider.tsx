@@ -37,6 +37,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             return user;
     }
 
+
     useEffect(() => {
         getUser().then((user) => {
             setUser(user.data);
@@ -52,6 +53,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         });
     }, [pathname]);
 
+
+    
     if (loading) {
         return <Loader />;
     }
