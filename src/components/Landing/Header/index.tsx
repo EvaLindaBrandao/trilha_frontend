@@ -31,75 +31,7 @@ export function Header() {
           <li>
             <Link href="#">Sobre</Link>
           </li>
-        </ul>
-        <NavigationMenu>
-            <NavigationMenuItem>
-          <NavigationMenuTrigger className="w-48 text-black bg-primary-orange h-8 rounded-full px-6 py-1 text-sm  cursor-pointer bg-transparent">Entrar</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className=" ">
-             
-            <Link href="/login">
-                        <li className=" hover:bg-gray-200 text-md font-bold w-48 mb-2   ">
-                      
-                          Mentorado
-        
-                        </li>
-                   
-                    </Link>
-             
-            </ul>
-            <ul className=" ">
-             
-            <Link href="/lmentees">
-                        <li className=" hover:bg-gray-200 text-md font-bold w-48 ">
-                           
-            Mentor
-        
-                        </li>
-                   
-                    </Link>
-             
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        </NavigationMenu>
-        
-
-
-
-        <NavigationMenu>
-            <NavigationMenuItem>
-          <NavigationMenuTrigger className="w-48 text-black bg-white text-xl font-bold bg-transparent">Entrar</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className=" ">
-             
-            <Link href="/cadastro">
-                        <li className=" hover:bg-gray-200 text-md font-bold w-48 mb-2   ">
-                      
-                      Mentorado
-        
-                        </li>
-                   
-                    </Link>
-             
-            </ul>
-            <ul className=" ">
-             
-            <Link href="/mentees">
-                        <li className=" hover:bg-gray-200 text-md font-bold w-48 ">
-                           
-                           Mentor<ButtonSecundary text="Cadastrar" />
-        
-                        </li>
-                   
-                    </Link>
-             
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        </NavigationMenu>
-        
-       
+        </ul>       
       </nav>
     </header>
   );

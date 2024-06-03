@@ -56,10 +56,10 @@ function addIndex() {
 
       <div className="mx-auto mt-9 flex w-[600px] flex-col items-center gap-6 px-8">
         <div className="w-full rounded-lg p-4 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-          <p>{questions[index].text}</p>
+          <p>{questions[index]?.text}</p>
         </div>
         <div className="flex w-full flex-col  gap-2">
-          {questions[index].response.map((response, i) => {
+          {questions[index]?.response.map((response, i) => {
             return (
               <div 
                 key={i}

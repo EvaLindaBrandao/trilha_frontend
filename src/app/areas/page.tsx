@@ -1,3 +1,4 @@
+'use client'
 //Components
 import { CardCarreira } from "@/components/Landing/Cards/card-career";
 import { Header } from "@/components/Landing/Header";

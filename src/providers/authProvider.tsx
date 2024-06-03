@@ -13,6 +13,8 @@ interface AuthProviderProps {
     logOut: () => void;
 }
 
+const publicroutes = ["/auth/login", "/auth/cadastro", "/", "/carreiras", "/areas", "/questionario", "/trilha/carreiras"]; 
+
 export const AuthContext = createContext({} as AuthProviderProps);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
@@ -41,10 +43,10 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             setToken(TokenService.getToken() as string);
             pathname.startsWith("/auth") ? router.replace("/dashboard") : router.replace(pathname);
         }).catch((err) => {
-            if(pathname.startsWith("/auth")){
+            if(publicroutes.includes(pathname)){
                 return router.replace(pathname)
             }
-            logout();
+            return router.replace("/auth/login")
         }).finally(() => {
             setLoading(false);
         });
