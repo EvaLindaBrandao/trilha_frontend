@@ -1,5 +1,5 @@
 //Components
-import { CardCarreira } from "@/components/Landing/Cards/card-career";
+import { CardPrimary } from "@/components/Landing/Cards/card-primary";
 import { Header } from "@/components/Landing/Header";
 
 //Image
@@ -22,25 +22,25 @@ export default function Carreiras() {
           listadas
         </p>
         <div className="mt-10 grid grid-cols-2 gap-6">
-          <CardCarreira
+          <CardPrimary
             src={ImagemCarreira1}
             alt="Imagem de Carreira"
             titulo="Programador"
             paragrafo="Essa pessoa é a responsável por criar softwares e atender às demandas por aplicações em diversas áreas..."
           />
-          <CardCarreira
+          <CardPrimary
             src={ImagemCarreira2}
             alt="Imagem de Carreira"
             titulo="Analista de Sistema"
             paragrafo="O analista de sistemas desempenha um papel crucial na indústria de Tecnologia da Informação, utilizando sua expertise ..."
           />
-          <CardCarreira
+          <CardPrimary
             src={ImagemCarreira1}
             alt="Imagem de Carreira"
             titulo="Arquiteto"
             paragrafo="O arquiteto é um profissional que realiza planos, projeta e constrói espaços para que sejam úteis para o uso humano; tais como casas, prédios ..."
           />
-          <CardCarreira
+          <CardPrimary
             src={ImagemCarreira2}
             alt="Imagem de Carreira"
             titulo="Dançarino"

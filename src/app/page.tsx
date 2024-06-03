@@ -21,7 +21,7 @@ import Link from "next/link";
 
 // Icons
 import { MdOutlineStar } from "react-icons/md";
-import { CardCarreira } from "@/components/Landing/Cards/card-career";
+import { CardPrimary } from "@/components/Landing/Cards/card-primary";
 
 export default function Home() {
   return (
@@ -66,13 +66,13 @@ export default function Home() {
         </p>
         <div className="flex gap-14">
           <Image
-            src={MentorImage.src}
+            src={MentorImage}
             alt="Imagem de um mentor"
             width={320}
             height={150}
           />
           <Image
-            src={MentoredImage.src}
+            src={MentoredImage}
             alt="Imagem de mentorados"
             width={320}
             height={150}
@@ -297,19 +297,19 @@ export default function Home() {
             <p className="mt-4 text-gray-black">Ler mais...</p>
           </div>
           <div className="flex w-[500px] flex-col gap-8">
-            <CardCarreira
+            <CardPrimary
               src={crianca}
               alt="Imagem de crianca"
               titulo="Electicidade"
               paragrafo=" Class Technologies Inc., the company that created Class,..."
             />
-            <CardCarreira
+            <CardPrimary
               src={crianca}
               alt="Imagem de crianca"
               titulo="Electicidade"
               paragrafo=" Class Technologies Inc., the company that created Class,..."
             />
-            <CardCarreira
+            <CardPrimary
               src={crianca}
               alt="Imagem de crianca"
               titulo="Electicidade"

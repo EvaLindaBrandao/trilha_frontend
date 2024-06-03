@@ -1,10 +1,9 @@
 "use client"
 //Components
-import { CardCarreira } from "@/components/Landing/Cards/card-career";
+import { CardPrimary } from "@/components/Landing/Cards/card-primary";
 import { Header } from "@/components/Landing/Header";
 
 //Image
-import ImagemCarreira1 from "/public/assets/imagemcarreira1.svg";
 import ImagemCarreira2 from "/public/assets/imagemcarreira2.svg";
 import { useEffect, useState } from "react";
 import { CareerService } from "@/services/CareerService";
@@ -29,7 +28,7 @@ export default function Carreiras() {
         <div className="mt-10 grid grid-cols-2 gap-6">
           {careers.map((career)=>{
             return (
-              <CardCarreira
+              <CardPrimary
                 src={ImagemCarreira2}
                 alt="Imagem de Carreira"
                 titulo={career.name}

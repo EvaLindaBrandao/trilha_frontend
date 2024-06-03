@@ -11,7 +11,7 @@ type Props = {
   imageStyle?: string;
 };
 
-export function CardCarreira({
+export function CardPrimary({
   src,
   alt,
   titulo,
