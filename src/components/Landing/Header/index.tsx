@@ -1,6 +1,12 @@
-//Imagem
 import Logo from "/public/images/logo/logo.svg";
 import Link from "next/link";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuTrigger,
+  
+} from "@/components/ui/navigation-menu"
 
 //Components
 import Image from "next/image";
@@ -25,18 +31,9 @@ export function Header() {
           <li>
             <Link href="#">Sobre</Link>
           </li>
-        </ul>
-        <Link href="/login">
-          <ButtonSecundary
-            text="Entrar"
-            bgColor="bg-white"
-            textColor="text-black"
-          />
-        </Link>
-        <Link href="/cadastro">
-          <ButtonSecundary text="Cadastrar" />
-        </Link>
+        </ul>       
       </nav>
     </header>
   );
 }
+

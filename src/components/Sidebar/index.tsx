@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -8,7 +8,9 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { IoMdContacts } from "react-icons/io";
 import { FaRegCalendarDays } from "react-icons/fa6";
 import { SiAlltrails } from "react-icons/si";
+import { FaFacebookMessenger } from "react-icons/fa";
 import { HiOutlineSquares2X2 } from "react-icons/hi2";
+import { AuthContext } from "@/providers/authProvider";
 interface SidebarProps {
   sidebarOpen: boolean;
   setSidebarOpen: (arg: boolean) => void;
@@ -70,10 +72,24 @@ const sidebarItens: SideBarItens[] = [
     icon: IoSettingsOutline,
     iconSize: 25,
   },
+  {
+    description: "Mensagens",
+    link: "/messegeMentees",
+    icon: FaFacebookMessenger ,
+    iconSize: 25,
+    userType: "mentor",
+  },
+  {
+    description: "Mensagens",
+    link: "/messegeMentors",
+    icon:  FaFacebookMessenger,
+    iconSize: 25,
+    userType: "mentee",
+  },
 ];
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
-  let user = "mentee";
+  const { user } = useContext(AuthContext) 
   const pathname = usePathname();
   const trigger = useRef<any>(null);
   const sidebar = useRef<any>(null);
@@ -171,7 +187,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             <ul className="mb-6 flex flex-col gap-1.5">
               {sidebarItens.map(
                 ({ description, icon: Icon, iconSize, link, userType }) => {
-                  if (!userType || userType === user)
+                  if (!userType || userType === user?.userType)
                     return (
                       <li>
                         <Link

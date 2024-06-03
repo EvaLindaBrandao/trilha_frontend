@@ -1,4 +1,4 @@
-"use client"
+'use client'
 //Components
 import { CardPrimary } from "@/components/Landing/Cards/card-primary";
 import { Header } from "@/components/Landing/Header";
