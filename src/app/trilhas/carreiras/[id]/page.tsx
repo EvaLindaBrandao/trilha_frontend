@@ -1,26 +1,31 @@
 'use client'
 // Components
-import { ButtonSecundary } from "@/components/Landing/Buttons/button-secundary";
 import { Header } from "@/components/Landing/Header";
 import Image from "next/image";
 
 // Image
 import { Trail } from "@/types/trail";
 import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { TrailService } from "@/services/TrailService";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 export default function CarreiaraDetalhes() {
   const [trails, setTrails] = useState<Trail[]>([])
   const { id } = useParams()
   const careerId = Number(id)
+  const router = useRouter()
+
   useEffect(() =>{
     TrailService.getByCareer(careerId).then(data => setTrails(data))
   },[careerId])
 
-  console.log("afasfsafasdf", trails)
-  if(!trails.length) return
+  if(!trails.length) {
+    toast.warn('Está carreira não tem trilhas')
+
+    return router.back()
+  }
 
   return (
     <>
