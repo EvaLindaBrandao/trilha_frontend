@@ -5,9 +5,9 @@ type Props = {
   placeholder: string;
   type: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-};
+} & React.InputHTMLAttributes<HTMLInputElement>;
 
-export const Input = ({ label, placeholder, type, onChange }: Props) => {
+export const Input = ({ label, placeholder, type, onChange, ...rest }: Props) => {
   return (
     <div className="flex w-full flex-col ">
       <label>{label}</label>
@@ -18,6 +18,7 @@ export const Input = ({ label, placeholder, type, onChange }: Props) => {
         placeholder={placeholder}
         required
         onChange={onChange}
+        {...rest}
       />
     </div>
   );

@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { AuthContext } from "@/providers/authProvider";
 
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
+  const { user, logOut } = useContext(AuthContext)
   const trigger = useRef<any>(null);
   const dropdown = useRef<any>(null);
 
@@ -44,9 +45,11 @@ const DropdownUser = () => {
       >
         <span className="hidden text-right lg:block">
           <span className="block text-sm font-medium text-black dark:text-white">
-            António Tomais
+            { user?.name }
           </span>
-          <span className="block text-xs">Mentorado</span>
+          <span className="block text-xs">
+            { user?.email }
+          </span>
         </span>
 
         <span className="h-12 w-12 rounded-full">
@@ -115,9 +118,9 @@ const DropdownUser = () => {
             </Link>
           </li>
           <li>
-            <Link
-              href="/login"
-              className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
+            <div
+              onClick={logOut}
+              className="flex items-center cursor-pointer gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
             >
               <svg
                 className="fill-current"
@@ -137,7 +140,7 @@ const DropdownUser = () => {
                 />
               </svg>
               Sair
-            </Link>
+            </div>
           </li>
         </ul>
       </div>
