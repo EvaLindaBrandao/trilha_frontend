@@ -10,13 +10,14 @@ import { useContext, useEffect, useState } from "react";
 
 const TrilhasMentoradoPage = () => {
   const { user } = useContext(AuthContext) 
-  const [menteeTrail, setMenteeTrail] = useState<MenteeTrail[]>()
+  const [menteeTrail, setMenteeTrail] = useState<MenteeTrail[]>([])
 
-  useEffect(()=> {
-      MenteeTrailService.getByMentee(user.id).then((data)=> {
-        setMenteeTrail(data)
-      })
-  },[ user ])
+    useEffect(()=> {
+        MenteeTrailService.getByMentee(user?.id).then((data)=> {
+          setMenteeTrail(data)
+        })
+    },[ user ])
+
 
   return (
     <DefaultLayout>

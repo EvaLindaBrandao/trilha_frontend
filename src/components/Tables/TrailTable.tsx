@@ -1,3 +1,4 @@
+'use client'
 import { MenteeTrail } from "@/types/menteeTrail";
 import { Package } from "@/types/package";
 import { TrailStatus } from "@/types/trailStatus";
@@ -32,7 +33,7 @@ const TrailTable = ({menteeTrail}: Props) => {
             </tr>
           </thead>
           <tbody>
-            {menteeTrail.map((_, key) => (
+            {menteeTrail?.map((_, key) => (
               <tr key={key}>
                 <td className="border-b border-[#eee] px-4 py-5 pl-9 dark:border-strokedark xl:pl-11">
                   <h5 className="font-medium text-black dark:text-white">

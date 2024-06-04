@@ -61,7 +61,7 @@ const sidebarItens: SideBarItens[] = [
   },
   {
     description: "Trilhas",
-    link: "/trilhas",
+    link: "/mentorado/trilhas",
     icon: SiAlltrails,
     iconSize: 25,
     userType: "mentee",
@@ -71,20 +71,6 @@ const sidebarItens: SideBarItens[] = [
     link: "/perfil",
     icon: IoSettingsOutline,
     iconSize: 25,
-  },
-  {
-    description: "Mensagens",
-    link: "/messegeMentees",
-    icon: FaFacebookMessenger ,
-    iconSize: 25,
-    userType: "mentor",
-  },
-  {
-    description: "Mensagens",
-    link: "/messegeMentors",
-    icon:  FaFacebookMessenger,
-    iconSize: 25,
-    userType: "mentee",
   },
 ];
 
