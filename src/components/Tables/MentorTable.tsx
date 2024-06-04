@@ -1,5 +1,4 @@
 import { BRAND } from "@/types/brand";
-import Image from "next/image";
 
 interface TableOneProps {
   brandData: BRAND[];
@@ -12,41 +11,36 @@ const TableOne = ({ brandData, title }: TableOneProps) => {
       <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
         {title}
       </h4>
+      { !brandData.length ? <div>Sem {title}</div> : 
+        <div className="flex flex-col">
+          <div className="grid grid-cols-3 rounded-sm bg-gray-2 dark:bg-meta-4">
+            <div className="p-2.5 xl:p-5">
+              <h5 className="text-sm font-medium xsm:text-base">Nome</h5>
+            </div>
+            <div className="p-2.5 xl:p-5">
+              <h5 className="text-sm font-medium xsm:text-base">Trilha</h5>
+            </div>
+          </div>
 
-      <div className="flex flex-col">
-        <div className="grid grid-cols-3 rounded-sm bg-gray-2 dark:bg-meta-4">
-          <div className="p-2.5 xl:p-5">
-            <h5 className="text-sm font-medium xsm:text-base">Imagem</h5>
-          </div>
-          <div className="p-2.5 text-center xl:p-5">
-            <h5 className="text-sm font-medium xsm:text-base">Nome</h5>
-          </div>
-          <div className="p-2.5 text-center xl:p-5">
-            <h5 className="text-sm font-medium xsm:text-base">Área</h5>
-          </div>
+          {brandData.map((brand, key) => (
+            <div
+              className={`grid grid-cols-3 ${
+                key === brandData.length - 1
+                  ? ""
+                  : "border-b border-stroke dark:border-strokedark"
+              }`}
+              key={key}
+            >
+              <div className="flex items-center justify-center p-2.5 xl:p-5">
+                <p>{brand.name}</p>
+              </div>
+              <div className="flex items-center justify-center p-2.5 xl:p-5">
+                <p>{brand.trail}</p>
+              </div>
+            </div>
+          ))}
         </div>
-
-        {brandData.map((brand, key) => (
-          <div
-            className={`grid grid-cols-3 ${
-              key === brandData.length - 1
-                ? ""
-                : "border-b border-stroke dark:border-strokedark"
-            }`}
-            key={key}
-          >
-            <div className="flex items-center gap-3 p-2.5 xl:p-5">
-              <Image src={brand.logo} alt="Brand" width={48} height={48} />
-            </div>
-            <div className="flex items-center justify-center p-2.5 xl:p-5">
-              <p>{brand.name}</p>
-            </div>
-            <div className="flex items-center justify-center p-2.5 xl:p-5">
-              <p>{brand.area}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+      }
     </div>
   );
 };

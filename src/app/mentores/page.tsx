@@ -1,38 +1,38 @@
+'use client'
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import TableOne from "@/components/Tables/MentorTable";
-
-import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
-import { BRAND } from "@/types/brand";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "@/providers/authProvider";
+import { MenteeTrail } from "@/types/menteeTrail";
+import { MenteeTrailService } from "@/services/MenteeTrailService";
 
-export const metadata: Metadata = {
-  title: "Trilha",
-  description: "Plataforma de apoio a decisão da carreira profissional",
-};
+const MentoresPage = () => {
+  const { user } = useContext(AuthContext) 
+  const [menteeTrail, setMenteeTrail] = useState<MenteeTrail[]>()
 
-const brandData: BRAND[] = [
-  {
-    logo: "/assets/woman.jpg",
-    name: "Mentor 1",
-    area: "Programação",
-  },
-  {
-    logo: "/assets/woman.jpg",
-    name: "Mentor 2",
-    area: "Design Gráfico",
-  },
-];
+  useEffect(()=> {
+      MenteeTrailService.getByMentee(user.id).then((data)=> {
+        setMenteeTrail(data)
+      })
+  },[ user ])
 
-const TablesPage = () => {
+  const mentors = menteeTrail?.map( (_) => {
+    return {
+      name: _.trail?.mentor?.user?.name || "",
+      trail: _.trail?.name || ""
+    }
+  });
+  
   return (
     <DefaultLayout>
       <Breadcrumb pageName="Mentores" />
 
       <div className="flex flex-col gap-10">
-        <TableOne brandData={brandData} title="Meus Mentorados" />
+        <TableOne brandData={mentors || []} title="Meus Mentorados" />
       </div>
     </DefaultLayout>
   );
 };
 
-export default TablesPage;
+export default MentoresPage;

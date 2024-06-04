@@ -1,20 +1,18 @@
-import { Metadata } from "next";
+'use client'
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import { DashMentored } from "@/components/Dash/DashboardMentored";
 import { DashMentor } from "@/components/Dash/DashboardMentor";
-
-export const metadata: Metadata = {
-  title: "Trilha",
-  description: "Plataforma de apoio a decisão da carreira profissional",
-};
+import { useContext } from "react";
+import { AuthContext } from "@/providers/authProvider";
 
 export default function Dashboard() {
-  let user = "mentee";
+  const { user } = useContext(AuthContext) 
 
+  if(!user) return
   return (
     <>
       <DefaultLayout>
-        {user === "mentee" ? <DashMentored /> : <DashMentor />}
+        {user.userType === "mentee" ? <DashMentored /> : <DashMentor />}
       </DefaultLayout>
     </>
   );
