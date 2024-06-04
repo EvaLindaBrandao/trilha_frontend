@@ -6,9 +6,10 @@ import { redirect, usePathname, useRouter } from "next/navigation";
 import { UserService } from "../services/UserService";
 import React from "react";
 import Loader from "@/components/common/Loader";
+import { User } from "@/types/user";
 
 interface AuthProviderProps {
-    user: any;
+    user: User;
     token: string;
     logOut: () => void;
 }
