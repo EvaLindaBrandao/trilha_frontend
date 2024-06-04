@@ -1,37 +1,16 @@
+import { MenteeTrail } from "@/types/menteeTrail";
 import { Package } from "@/types/package";
+import { TrailStatus } from "@/types/trailStatus";
 import Link from "next/link";
 
 // Icons
 import { AiOutlineEye } from "react-icons/ai";
 
-const packageData: Package[] = [
-  {
-    name: "Programação",
-    price: 59.0,
-    invoiceDate: `Jan 13,2023`,
-    status: "Em progresso",
-  },
-  {
-    name: "Designer Gráfico",
-    price: 59.0,
-    invoiceDate: `Jan 13,2023`,
-    status: "Em progresso",
-  },
-  {
-    name: "Matemática",
-    price: 0.0,
-    invoiceDate: `Jan 13,2023`,
-    status: "Concluido",
-  },
-  {
-    name: "Música",
-    price: 99.0,
-    invoiceDate: `Jan 13,2023`,
-    status: "Parado",
-  },
-];
+interface Props {
+  menteeTrail: MenteeTrail[]
+}
 
-const TrailTable = () => {
+const TrailTable = ({menteeTrail}: Props) => {
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
       <div className="max-w-full overflow-x-auto">
@@ -53,36 +32,36 @@ const TrailTable = () => {
             </tr>
           </thead>
           <tbody>
-            {packageData.map((packageItem, key) => (
+            {menteeTrail.map((_, key) => (
               <tr key={key}>
                 <td className="border-b border-[#eee] px-4 py-5 pl-9 dark:border-strokedark xl:pl-11">
                   <h5 className="font-medium text-black dark:text-white">
-                    {packageItem.name}
+                    {_.trail?.mentor?.id}
                   </h5>
-                  <p className="text-sm">{packageItem.price} kz</p>
+                  <p className="text-sm">{0} kz</p>
                 </td>
                 <td className="border-b border-[#eee] px-4 py-5 dark:border-strokedark">
                   <p className="text-black dark:text-white">
-                    {packageItem.invoiceDate}
+                    {_.createdAt.toString()}
                   </p>
                 </td>
                 <td className="border-b border-[#eee] px-4 py-5 dark:border-strokedark">
                   <p
                     className={`inline-flex rounded-full bg-opacity-10 px-3 py-1 text-sm font-medium ${
-                      packageItem.status === "Concluido"
+                      _.status === "done"
                         ? "bg-success text-success"
-                        : packageItem.status === "Parado"
+                        : _.status === "denied"
                           ? "bg-danger text-danger"
                           : "bg-warning text-warning"
                     }`}
                   >
-                    {packageItem.status}
+                    {TrailStatus[_.status]}
                   </p>
                 </td>
                 <td className="border-b border-[#eee] px-4 py-5 dark:border-strokedark">
                   <div className="flex items-center space-x-3.5">
                     <Link
-                      href={"/trilhas/" + packageItem.name}
+                      href={"/trilhas/" + _.trail?.name}
                       className="hover:text-primary"
                     >
                       <AiOutlineEye size={23} />
