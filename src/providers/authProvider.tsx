@@ -44,7 +44,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             setToken(TokenService.getToken() as string);
             pathname.startsWith("/auth") ? router.replace("/dashboard") : router.replace(pathname);
         }).catch((err) => {
-            if(publicroutes.includes(pathname) || pathname.startsWith("/trilhas/carreiras/") || pathname.startsWith("/carreiras/")) {
+            if(publicroutes.includes(pathname) || pathname.startsWith("/trilhas/carreiras/") || pathname.startsWith("/carreiras/") || pathname.startsWith("/trilhas/")) {
                 return router.replace(pathname)
             }
             return router.replace("/auth/login")

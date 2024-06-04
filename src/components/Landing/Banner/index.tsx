@@ -1,18 +1,15 @@
 "use client";
 //Imagens
 import WomanImage from "/public/assets/header-pic.png";
-import Logo from "/public/images/logo/logo.svg";
 
 //Components
 import Image from "next/image";
 import { ButtonSecundary } from "../Buttons/button-secundary";
 import Link from "next/link";
-import { Header } from "../Header";
 
 export function Banner() {
   return (
     <div className="h-[100 vh - 80px] bg-primary-blue">
-      <Header />
       <div className="flex justify-between gap-4 px-32 ">
         <div className="mt-12 flex flex-col items-start gap-4">
           <h1 className="text-4xl font-bold text-secondary-blue">
@@ -31,7 +28,7 @@ export function Banner() {
             />
           </Link>
         </div>
-        <div className="mt-[-75px] ">
+        <div className="mt-[-75px]">
           <Image src={WomanImage} alt="Imagem de mulher" width={500} />
         </div>
       </div>

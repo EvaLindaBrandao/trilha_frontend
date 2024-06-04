@@ -14,7 +14,6 @@ import logo from "/public/images/logo/logo.svg";
 
 //Components
 import { Banner } from "@/components/Landing/Banner";
-import { CardImage } from "@/components/Landing/Cards/card-image";
 import { CardInfo } from "@/components/Landing/Cards/card-info";
 import Image from "next/image";
 import Link from "next/link";
@@ -22,10 +21,12 @@ import Link from "next/link";
 // Icons
 import { MdOutlineStar } from "react-icons/md";
 import { CardPrimary } from "@/components/Landing/Cards/card-primary";
+import { Header } from "@/components/Landing/Header";
 
 export default function Home() {
   return (
-    <div>
+    <div className="relative">
+      <Header />
       <Banner />
       {/* SECCAO DE ESCOLHE A TUA CARREIRA */}
       <section className="flex flex-col items-center justify-center gap-9">
@@ -239,12 +240,12 @@ export default function Home() {
               {/*<hr className="w-40 text-secondary-blue"/>*/}
               <div className="flex-1 bg-white p-8">
                 <p className="text-sm text-gray-black">
-                  {" "}
-                  "Muito obrigado pela sua ajuda. É exatamente o que <br /> eu
+                  {'"'}
+                  Muito obrigado pela sua ajuda. É exatamente o que <br /> eu
                   estava procurando. Você não vai se arrepender.
                   <br />
                   Isso realmente me poupa tempo e esforço. A Trilha <br /> é
-                  exatamente o que faltava em nosso dia-a-dia"
+                  exatamente o que faltava em nosso dia-a-dia {'"'}
                 </p>
                 <div className="mt-8 flex justify-between">
                   <p className="text-gray-black">Glória Rosa</p>

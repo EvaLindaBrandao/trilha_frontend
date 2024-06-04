@@ -1,12 +1,5 @@
 import Logo from "/public/images/logo/logo.svg";
 import Link from "next/link";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuTrigger,
-  
-} from "@/components/ui/navigation-menu"
 
 //Components
 import Image from "next/image";
@@ -14,7 +7,7 @@ import { ButtonSecundary } from "../Buttons/button-secundary";
 
 export function Header() {
   return (
-    <header className="flex h-20 flex-row-reverse items-center justify-between bg-primary-blue px-32 py-8 ">
+    <header className="flex h-20 flex-row-reverse items-center justify-between bg-primary-blue px-32 py-8 z-99">
       <div>
         <Link href="/">
           <Image src={Logo} alt="Logo" width={100} />
@@ -32,6 +25,16 @@ export function Header() {
             <Link href="#">Sobre</Link>
           </li>
         </ul>       
+        <Link href="/auth/login">
+          <ButtonSecundary
+            text="Entrar"
+            bgColor="bg-white"
+            textColor="text-black"
+          />
+        </Link>
+        <Link href="/auth/cadastro">
+          <ButtonSecundary text="Cadastrar" />
+        </Link>
       </nav>
     </header>
   );

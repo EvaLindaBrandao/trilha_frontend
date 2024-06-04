@@ -31,10 +31,7 @@ export default function CarreirasRecomendas() {
           que melhor conbinam contigo
         </h2>
         <p className="text-gray-black">
-          Consoante as tuas respostas baseadas em tuas habilidades,
-          dsasdadajhdsajhvdsahgdsahcdsa hjdfsahgxgfdsad vsadjfasytdyashd
-          ...vimos as areas que melhor podem conbinar tigo são as seguintes
-          listadas
+        Levando em conta suas respostas e habilidades, as carreiras mais indicadas para você são as seguintes:
         </p>
         <div className="mt-10 grid grid-cols-2 gap-6">
           {careers.map(career => (
